@@ -1,0 +1,493 @@
+/* RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+    color: #f4e4bc;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* STARS BACKGROUND */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stars::before,
+.stars::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #ffd700;
+    border-radius: 50%;
+    box-shadow: 
+        10vw 20vh #ffd700,
+        20vw 80vh #ffd700,
+        30vw 30vh #ffd700,
+        40vw 70vh #ffd700,
+        50vw 10vh #ffd700,
+        60vw 90vh #ffd700,
+        70vw 40vh #ffd700,
+        80vw 60vh #ffd700,
+        90vw 20vh #ffd700,
+        15vw 50vh #ffd700,
+        25vw 15vh #ffd700,
+        35vw 85vh #ffd700,
+        45vw 25vh #ffd700,
+        55vw 75vh #ffd700,
+        65vw 35vh #ffd700,
+        75vw 65vh #ffd700,
+        85vw 45vh #ffd700,
+        95vw 95vh #ffd700,
+        5vw 5vh #ffd700,
+        95vw 5vh #ffd700;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.stars::after {
+    animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* PAGE SECTIONS */
+.page {
+    display: none;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.page.active {
+    display: flex;
+}
+
+.content {
+    text-align: center;
+    max-width: 800px;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MAGICAL TITLE */
+.magical-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2.5rem;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+/* MAGICAL BUTTON */
+.magical-btn {
+    background: linear-gradient(135deg, #4a1a6b 0%, #2d1b4e 100%);
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    padding: 15px 40px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    margin-top: 2rem;
+}
+
+.magical-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.magical-btn:active {
+    transform: scale(0.95);
+}
+
+/* EMOJIS */
+.owl, .hat, .wand, .cauldron {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* OPTIONS */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 2rem 0;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.option-btn {
+    background: rgba(255, 215, 0, 0.1);
+    color: #f4e4bc;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    padding: 15px 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    transform: scale(1.02);
+}
+
+.option-btn.selected {
+    background: rgba(255, 215, 0, 0.3);
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* RESPONSE */
+.response {
+    font-size: 1.3rem;
+    color: #ffd700;
+    margin: 1.5rem 0;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+.hidden {
+    display: none;
+}
+
+/* SPELL INPUT */
+.spell-input {
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    color: #f4e4bc;
+    padding: 15px 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.spell-input:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.spell-input::placeholder {
+    color: rgba(244, 228, 188, 0.5);
+}
+
+.hint {
+    font-size: 1rem;
+    color: rgba(244, 228, 188, 0.7);
+    margin-bottom: 1rem;
+}
+
+/* POTIONS */
+.potions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 2rem 0;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.potion-btn {
+    background: rgba(255, 215, 0, 0.1);
+    color: #f4e4bc;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    padding: 15px 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.potion-btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    transform: scale(1.02);
+}
+
+.potion-btn.selected {
+    background: rgba(255, 215, 0, 0.3);
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* LETTER */
+.letter-container {
+    perspective: 1000px;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.letter {
+    background: linear-gradient(135deg, #f4e4bc 0%, #e8d4a8 50%, #d4c090 100%);
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow:
+        0 0 30px rgba(255, 215, 0, 0.3),
+        inset 0 0 50px rgba(139, 90, 43, 0.2);
+    position: relative;
+    transition: transform 1s ease;
+    cursor: pointer;
+}
+
+.letter:hover {
+    transform: rotateX(5deg);
+}
+
+.letter-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.seal {
+    font-size: 3rem;
+    display: inline-block;
+    animation: sealGlow 2s ease-in-out infinite;
+    cursor: pointer;
+}
+
+@keyframes sealGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px #ff0000);
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 15px #ff0000);
+        transform: scale(1.1);
+    }
+}
+
+.letter-content {
+    color: #2d1b4e;
+    animation: letterOpen 1s ease-in;
+}
+
+@keyframes letterOpen {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letter-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2rem;
+    color: #4a1a6b;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.letter-body {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.letter-body p {
+    margin-bottom: 1rem;
+}
+
+.letter-signature {
+    font-style: italic;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+}
+
+.letter-name {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.3rem;
+    color: #4a1a6b;
+    margin-top: 0.5rem;
+}
+
+.final-question {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(74, 26, 107, 0.2);
+}
+
+.final-question p {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.5rem;
+    color: #4a1a6b;
+    margin-bottom: 1.5rem;
+}
+
+.final-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+
+    /* IMPORTANT FIX */
+    position: relative;
+    z-index: 9999;
+}
+
+.yes-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.7);
+}
+
+.no-btn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+    position: relative;
+}
+
+.no-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.7);
+}
+
+/* CELEBRATION */
+.celebration-text {
+    text-align: center;
+}
+
+.celebration-text h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.celebration-text p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.celebration-emoji {
+    font-size: 5rem;
+    animation: celebrate 1s ease-in-out infinite;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.2) rotate(10deg); }
+    75% { transform: scale(1.2) rotate(-10deg); }
+}
+
+/* CONFETTI */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #ffd700;
+    animation: confettiFall 3s ease-out forwards;
+    z-index: 1000;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .magical-title {
+        font-size: 1.8rem;
+    }
+
+    .owl, .hat, .wand, .cauldron {
+        font-size: 4rem;
+    }
+
+    .letter {
+        padding: 2rem;
+    }
+
+    .letter-title {
+        font-size: 1.5rem;
+    }
+
+    .letter-body {
+        font-size: 1rem;
+    }
+
+    .final-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .yes-btn, .no-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}

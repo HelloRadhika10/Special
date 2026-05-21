@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Magical Mission for Dhikaa</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <!-- INTRO PAGE -->
+    <section id="intro" class="page active">
+
+        <div class="content">
+
+            <div class="owl">🦉</div>
+
+            <h1 class="magical-title">
+                Hogwarts has sent you a highly confidential mission.
+            </h1>
+
+            <button class="magical-btn" onclick="showPage('task1')">
+                Accept Mission ⚡
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- TASK 1 -->
+    <section id="task1" class="page">
+
+        <div class="content">
+
+            <div class="hat">🎩</div>
+
+            <h2 class="magical-title">
+                What is the most dangerous thing at Hogwarts?
+            </h2>
+
+            <div class="options">
+
+                <button class="option-btn" onclick="selectOption(1, this)">
+                    Basilisk
+                </button>
+
+                <button class="option-btn" onclick="selectOption(1, this)">
+                    Dementors
+                </button>
+
+                <button class="option-btn" onclick="selectOption(1, this)">
+                    Your smile
+                </button>
+
+            </div>
+
+            <div id="response1" class="response hidden">
+                Correct. Especially the third one. 😏
+            </div>
+
+            <button id="continue1" class="magical-btn hidden" onclick="showPage('task2')">
+                Continue
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- TASK 2 -->
+    <section id="task2" class="page">
+
+        <div class="content">
+
+            <div class="wand">🪄</div>
+
+            <h2 class="magical-title">
+                Type the spell correctly to unlock the next clue.
+            </h2>
+
+            <p class="hint">
+                Hint: It protects against Dementors
+            </p>
+
+            <input
+                type="text"
+                id="spellInput"
+                class="spell-input"
+                placeholder="Type the spell..."
+                onkeyup="checkSpell(event)"
+            >
+
+            <div id="spellResponse" class="response hidden"></div>
+
+            <button id="continue2" class="magical-btn hidden" onclick="showPage('task3')">
+                Next Mission
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- TASK 3 -->
+    <section id="task3" class="page">
+
+        <div class="content">
+
+            <div class="cauldron">🫕</div>
+
+            <h2 class="magical-title">
+                Choose your potion wisely...
+            </h2>
+
+            <div class="potions">
+
+                <button class="potion-btn" onclick="selectPotion('felix')">
+                    Felix Felicis 🍀
+                </button>
+
+                <button class="potion-btn" onclick="selectPotion('polyjuice')">
+                    Polyjuice Potion 🧪
+                </button>
+
+                <button class="potion-btn" onclick="selectPotion('love')">
+                    Love Potion 💜
+                </button>
+
+            </div>
+
+            <div id="potionResponse" class="response hidden"></div>
+
+            <button id="continue3" class="magical-btn hidden" onclick="showPage('final')">
+                Reveal Final Secret
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- FINAL LETTER -->
+    <section id="final" class="page">
+
+        <div class="content">
+
+            <div class="letter-container">
+
+                <div class="letter" id="letter">
+
+                    <div class="letter-header">
+                        <span class="seal" onclick="openLetter()">⚡</span>
+                    </div>
+
+                    <div class="letter-content hidden" id="letterContent">
+
+                        <h2 class="letter-title">
+                            Dear Dhikaa,
+                        </h2>
+
+                        <div class="letter-body">
+
+                            <p>
+                                From the moment you walked into my life, everything changed.
+                                You're not just beautiful — you're chaos and calm,
+                                laughter and seriousness,
+                                all wrapped in one person who makes every day feel like magic.
+                            </p>
+
+                            <p>
+                                I tried to be subtle about it (clearly, I failed),
+                                but there's something I need to say:
+                            </p>
+
+                            <p>
+                                You make me want to be better.
+                                You make me laugh when I don't want to.
+                                You make me forget what I was going to say mid-sentence.
+                                And honestly?
+                                I wouldn't have it any other way.
+                            </p>
+
+                            <p>
+                                This isn't just a crush or a fleeting feeling.
+                                It's real, and it's scary,
+                                and it's absolutely wonderful.
+                            </p>
+
+                            <p>
+                                So here I am,
+                                putting my heart on enchanted parchment,
+                                hoping you might feel the same way.
+                            </p>
+
+                        </div>
+
+                        <p class="letter-signature">
+                            Yours magically,
+                        </p>
+
+                        <p class="letter-name">
+                            [Your Name Here]
+                        </p>
+
+                        <div class="final-question">
+
+                            <p>
+                                So... Would you maybe like to go on a date with me?
+                            </p>
+
+                            <div class="final-buttons">
+
+                                <button class="yes-btn" onclick="celebrate()">
+                                    YES ✨
+                                </button>
+
+                                <button
+                                    class="no-btn"
+                                    id="noBtn"
+                                    onmouseover="dodgeNo()"
+                                >
+                                    NO
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CELEBRATION PAGE -->
+    <section id="celebration" class="page">
+
+        <div class="content">
+
+            <div class="celebration-text">
+
+                <h1 class="magical-title">
+                    ✨ Mission Successfully Completed! ✨
+                </h1>
+
+                <p>
+                    Best. Day. Ever. ⚡
+                </p>
+
+                <div class="celebration-emoji">
+                    🎉
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
